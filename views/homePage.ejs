@@ -1,0 +1,191 @@
+
+<%- include('includes/head') %>
+</head>
+ 
+
+<body>
+<%- include('includes/nav') %>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css"/>
+<!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+
+<style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial;
+      padding: 10px;
+      
+      background: #f1f1f1;
+    }
+    
+    /* Header/Blog Title */
+    .header {
+      padding: 10px;
+      padding-top:30px;
+      text-align: center;
+      background: white;
+    }
+    
+    .header h1 {
+      font-size: 50px;
+    }
+      
+    /* Create two unequal columns that floats next to each other */
+    /* Left column */
+    .leftcolumn {   
+      float: left;
+      width: 65%;
+    }
+    
+    /* Right column */
+    .rightcolumn {
+      float: left;
+      width: 35%;
+      background-color: #f1f1f1;
+      padding-left: 20px;
+    }
+    
+    /* Fake image */
+    .fakeimg {
+      background-color: #aaa;
+      width: 100%;
+      padding: 20px;
+    }
+    
+    /* Add a card effect for articles */
+    .card {
+      background-color: white;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    /* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+    
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+   #marker {
+    background-image: url('https://docs.mapbox.com/mapbox-gl-js/assets/washington-monument.jpg');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 90%;
+    cursor: pointer;
+    }
+     
+    .mapboxgl-popup {
+max-width: 400px;
+font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+border-radius: 50%;
+}
+
+    
+    /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 800px) {
+      .leftcolumn, .rightcolumn {   
+        width: 100%;
+        padding: 0;
+      }
+    }
+    
+    
+    </style>
+
+
+<div class="header">
+    <h1>Project : Digital Console</h1>
+    <h5>Project Title/Owner - Australia - Interactive Digital Systems</h5>
+  </div>
+  
+ 
+  
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+       
+        
+        
+        
+        <div class="container" style="height:600px"  id="map" ></div>
+        <div id="menu">
+            <input
+            id="streets-v11"
+            type="radio"
+            name="rtoggle"
+            value="streets"
+            checked="checked"
+            />
+            <label for="streets-v11">streets</label>
+            <input id="light-v10" type="radio" name="rtoggle" value="light" />
+            <label for="light-v10">light</label>
+            <input id="dark-v10" type="radio" name="rtoggle" value="dark" />
+            <label for="dark-v10">dark</label>
+            <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" />
+            <label for="outdoors-v11">outdoors</label>
+            <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
+            <label for="satellite-v9">satellite</label>
+            </div>
+         
+        <script  src="homeMap.js"></script>
+        <H5>Global Location Mapping</H5>
+        </div>
+      
+      
+    </div>
+    <div class="rightcolumn">
+      <div class="card">
+        <h2>Graphical Report</h2>
+        <h5><strong>Global</strong> Metrics</h5>
+        <canvas id="myChart" style="height:250px">chart</canvas>
+        
+        <script  src="chart.js"></script>
+        <p>Live reporting Level: <strong>Global</strong> </p>
+        <p><button>Update</button></p>
+      </div>
+      <div class="card">
+        <h2>xx Graphical Report</h2>
+        <h5><strong>Global</strong> Metrics</h5>
+        <canvas id="myChart1" style="height:250px">chart1</canvas>
+        <script  src="chart.js"></script>
+        <p>Live reporting Level: <strong>Global</strong></p>
+        <p><button>Update</button></p>
+      </div>
+     
+    
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="card">
+        <h2><Strong>Asset Technical Data</Strong></h2>
+        
+       
+       <div> <iframe id="addressID" src="" class="fakeimg" style="height:900px;"></iframe></div>
+        
+       
+      </div>
+    
+  </div>
+ 
+
+
+<%- include('includes/footer') %>

@@ -1,0 +1,21 @@
+
+
+a {
+  color: #00B7FF;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 80px;
+  }
+
+   #map{
+    height:100px;
+    width:100%
+  }
+
+    #menu {
+      position: absolute;
+      background: #fff;
+      padding: 10px;
+      font-family: 'Open Sans', sans-serif;
+      }
